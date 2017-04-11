@@ -38,6 +38,11 @@
   "xo": {
     "extends": "hexo",
     "root": true,
-    "globals": ["hexo"]
+    "globals": [
+      "hexo"
+    ]
+  },
+  "dependencies": {
+    "babel-eslint": "^7.2.1"
   }
 }
