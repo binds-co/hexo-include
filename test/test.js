@@ -1,19 +1,19 @@
 /* eslint-env node, mocha */
 
-var pathFn = require('path');
-var should = require('chai').should();
-var Hexo = require('hexo');
-var fs = require('hexo-fs');
+const pathFn = require('path');
+const should = require('chai').should();
+const Hexo = require('hexo');
+const fs = require('hexo-fs');
 
-var hexo = new Hexo(pathFn.join(__dirname, 'include_test'));
+const hexo = new Hexo(pathFn.join(__dirname, 'include_test'));
 
-var include = require('../lib/include.js')(hexo);
+const include = require('../lib/include.js')(hexo);
 
 describe('Include tag', function() {
-  var filePath = pathFn.join(hexo.source_dir, 'test_dir/test.html');
-  var emptyPath = pathFn.join(hexo.source_dir, 'test_dir/empty.html');
+  const filePath = pathFn.join(hexo.source_dir, 'test_dir/test.html');
+  const emptyPath = pathFn.join(hexo.source_dir, 'test_dir/empty.html');
 
-  var fixture = [
+  const fixture = [
     '<h1>go to sleep ya little bae</h1>',
     'if (tired && night){',
     '  sleep();',
@@ -38,20 +38,19 @@ describe('Include tag', function() {
   });
 
   it('existing file', function() {
-    return renderedContent('test_dir/test.html').then(function(result) {
+    return renderedContent('test_dir/test.html').then(result => {
       result.should.eql(fixture);
     });
   });
 
   it('empty file', function() {
-
-    return renderedContent('test_dir/empty.html').then(function(result) {
+    return renderedContent('test_dir/empty.html').then(result => {
       should.not.exist(result);
     });
   });
 
   it('nonexistent file', function() {
-    return renderedContent('this/file/doesnt/exist.magic').then(function(result) {
+    return renderedContent('this/file/doesnt/exist.magic').then(result => {
       should.not.exist(result);
     });
   });

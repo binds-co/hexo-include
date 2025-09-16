@@ -1,6 +1,6 @@
 {
   "name": "hexo-include",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A Hexo plugin for including raw content of any text file into a post",
   "license": "MIT",
   "repository": {
@@ -23,26 +23,48 @@
     "url": "https://github.com/pipirt/hexo-include/issues"
   },
   "homepage": "https://github.com/pipirt/hexo-include#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "devDependencies": {
-    "babel-register": "^6.16.3",
-    "chai": "^3.5.0",
-    "eslint-config-hexo": "^1.0.3",
-    "hexo": "^3.2.2",
-    "hexo-fs": "^0.1.6",
-    "mocha": "^3.1.1",
-    "xo": "^0.17.0"
+    "@babel/core": "^7.23.0",
+    "@babel/register": "^7.22.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.50.0",
+    "eslint-config-hexo": "^6.0.0",
+    "hexo": "^6.3.0",
+    "hexo-fs": "^4.0.0",
+    "mocha": "^9.2.0",
+    "xo": "^0.54.0"
   },
   "scripts": {
     "test": "xo && mocha test/test.js"
   },
   "xo": {
-    "extends": "hexo",
     "root": true,
     "globals": [
       "hexo"
-    ]
+    ],
+    "rules": {
+      "no-var": "off",
+      "prefer-const": "off",
+      "prefer-arrow-callback": "off",
+      "unicorn/prefer-module": "off",
+      "unicorn/prefer-node-protocol": "off",
+      "unicorn/prefer-module": "off",
+      "func-names": "off",
+      "quotes": "off",
+      "indent": "off",
+      "space-before-function-paren": "off",
+      "comma-dangle": "off",
+      "capitalized-comments": "off",
+      "padding-line-between-statements": "off",
+      "import/order": "off",
+      "import/extensions": "off",
+      "no-useless-return": "off"
+    }
   },
   "dependencies": {
-    "babel-eslint": "^7.2.1"
+    "@babel/eslint-parser": "^7.23.0"
   }
 }
